@@ -12,6 +12,11 @@ export dot, ⋅, cross, ×, norm, normalize
 export boost, rotate
 export convert
 
+
+# abstract base type for Lorentz vectors
+abstract type AbstractLorentzVector end
+
+
 """
     LorentzVector(t, x, y, z)
 
@@ -20,7 +25,7 @@ Lorentz 4-vector, as used in Special Relativity.
 The metric convention is g = diag(+1,-1,-1,-1). No distinction is made between
 co- and contravariant vectors.
 """
-struct LorentzVector{T <: AbstractFloat}
+struct LorentzVector{T <: AbstractFloat} <: AbstractLorentzVector
     t :: T
     x :: T
     y :: T
